@@ -27,7 +27,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/style.css",
+              "src/assets/vendor/jquery-nice-select/css/nice-select.css",
+              "src/assets/vendor/owl-carousel/owl.carousel.css"
             ],
             "scripts": []
           },
