@@ -24,4 +24,12 @@ export class AuthService {
   register(register: RegisterDto) {
     return this.http.post(this.baseUrl + '/auth/signup', register);
   }
+
+  forgotPassword(email: string) {
+    return this.http.post(this.baseUrl + '/auth/forgot-password', {email});
+  }
+
+  resetPassword(token: string, newPassword: string) {
+    return this.http.post(this.baseUrl + '/auth/reset-password', {token, newPassword});
+  }
 }
