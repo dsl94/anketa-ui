@@ -18,6 +18,8 @@ import {ToastrModule} from "ngx-toastr";
 import { MainComponent } from './components/main/main.component';
 import { ForgotPasswordComponent } from './components/auth/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
+import { ProfileComponent } from './components/profile/profile/profile.component';
+import {UserService} from "./services/user.service";
 
 const routes: Routes = [
   // osnovne rute
@@ -27,10 +29,13 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   {
-    path: 'dashboard',
+    path: 'central',
     component: MainComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['USER'] }
+    data: { roles: ['USER', 'ADMIN'] },
+    children: [
+      {path: 'profile', component: ProfileComponent}
+    ]
     },
 ];
 
@@ -41,7 +46,8 @@ const routes: Routes = [
     LoginComponent,
     MainComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +62,8 @@ const routes: Routes = [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: 'BASE_API_URL', useValue: environment.apiUrl },
     AuthService,
-    TokenService
+    TokenService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
