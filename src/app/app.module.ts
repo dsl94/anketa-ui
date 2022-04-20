@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
-import { IndexComponent } from './index/index.component';
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
@@ -16,6 +15,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import {AuthGuard} from "./helpers/auth.guard";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrModule} from "ngx-toastr";
+import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
   // osnovne rute
@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   {
     path: 'dashboard',
-    component: IndexComponent,
+    component: MainComponent,
     canActivate: [AuthGuard],
     data: { roles: ['USER'] }
     },
@@ -33,9 +33,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
