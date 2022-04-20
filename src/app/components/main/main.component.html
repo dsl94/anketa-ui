@@ -14,18 +14,18 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <div *ngIf="role=='ROLE_ADMIN'">
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/airadmin/dashboard']">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/central/profile']">
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Profile</span></a>
-            </li>
-        </div>
+<!--        <div *ngIf="role=='ROLE_ADMIN'">-->
+<!--            <li class="nav-item" routerLinkActive="active">-->
+<!--                <a class="nav-link" [routerLink]="['/airadmin/dashboard']">-->
+<!--                    <i class="fas fa-fw fa-tachometer-alt"></i>-->
+<!--                    <span>Dashboard</span></a>-->
+<!--            </li>-->
+<!--            <li class="nav-item" routerLinkActive="active">-->
+<!--                <a class="nav-link" [routerLink]="['/central/profile']">-->
+<!--                    <i class="fas fa-fw fa-user"></i>-->
+<!--                    <span>Profile</span></a>-->
+<!--            </li>-->
+<!--        </div>-->
 
         <div *ngIf="role=='USER'">
           <hr class="sidebar-divider">
@@ -34,12 +34,12 @@
           </div>
           <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" [routerLink]="['/user/profile']">
-                    <i class="fas fa-fw fa-user"></i>
+                    <i class="fas fa-fw fa-laptop-house"></i>
                     <span>My projects</span></a>
           </li>
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" [routerLink]="['/user/profile']">
-              <i class="fas fa-fw fa-user"></i>
+              <i class="fas fa-fw fa-laptop"></i>
               <span>Guest projects</span></a>
           </li>
           <hr class="sidebar-divider">
@@ -53,7 +53,7 @@
           </li>
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" [routerLink]="['/user/profile']">
-              <i class="fas fa-fw fa-user"></i>
+              <i class="fas fa-fw fa-users"></i>
               <span>Gusts</span></a>
           </li>
         </div>
