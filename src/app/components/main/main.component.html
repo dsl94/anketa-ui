@@ -5,10 +5,10 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-<!--            <div class="sidebar-brand-icon rotate-n-15">-->
-<!--                <i class="fas fa-archive"></i>-->
-<!--            </div>-->
-            <div class="sidebar-brand-text mx-3">Product Central</div>
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3"><h6>Product Central</h6></div>
         </a>
 
         <!-- Divider -->
@@ -21,94 +21,42 @@
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/airadmin/profile']">
+                <a class="nav-link" [routerLink]="['/central/profile']">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Profile</span></a>
             </li>
         </div>
 
-        <div *ngIf="role=='ROLE_USER'">
-            <li class="nav-item" routerLinkActive="active">
+        <div *ngIf="role=='USER'">
+          <hr class="sidebar-divider">
+          <div class="sidebar-heading">
+            Product hub
+          </div>
+          <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" [routerLink]="['/user/profile']">
                     <i class="fas fa-fw fa-user"></i>
-                    <span>Profile</span></a>
-            </li>
+                    <span>My projects</span></a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/user/profile']">
+              <i class="fas fa-fw fa-user"></i>
+              <span>Guest projects</span></a>
+          </li>
+          <hr class="sidebar-divider">
+          <div class="sidebar-heading">
+            Administration
+          </div>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/user/profile']">
+              <i class="fas fa-fw fa-user"></i>
+              <span>Profile</span></a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/user/profile']">
+              <i class="fas fa-fw fa-user"></i>
+              <span>Gusts</span></a>
+          </li>
         </div>
-
-        <div *ngIf="role=='ROLE_ADMIN'">
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-            <div class="sidebar-heading">
-                Flight centre
-            </div>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/airadmin/booking']">
-                    <i class="fas fa-plane-departure"></i>
-                    <span>Book flight</span></a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/airadmin/dispatch']">
-                    <i class="fas fa-print"></i>
-                    <span>Dispatch centre</span></a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/airadmin/pireps']">
-                    <i class="fas fa-plane-arrival"></i>
-                    <span>Pireps</span></a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/airadmin/routes']">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <span>Routes</span></a>
-            </li>
-        </div>
-
-        <div *ngIf="role=='ROLE_USER'">
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-            <div class="sidebar-heading">
-                Flight centre
-            </div>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/user/booking']">
-                    <i class="fas fa-plane-departure"></i>
-                    <span>Book flight</span></a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/user/dispatch']">
-                    <i class="fas fa-print"></i>
-                    <span>Dispatch centre</span></a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/user/pireps']">
-                    <i class="fas fa-plane-arrival"></i>
-                    <span>Pireps</span></a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/user/fleet']">
-                    <i class="fas fa-plane"></i>
-                    <span>Fleet</span></a>
-            </li>
-        </div>
-
-        <div *ngIf="role=='ROLE_ADMIN'">
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-            <div class="sidebar-heading">
-                Administration
-            </div>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/airadmin/pilots']">
-                    <i class="fas fa-users"></i>
-                    <span>Pilots</span></a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/airadmin/fleet']">
-                    <i class="fas fa-plane"></i>
-                    <span>Airplanes</span></a>
-            </li>
-        </div>
-
 
         <!-- Heading -->
         <!-- <div class="sidebar-heading">
@@ -136,31 +84,6 @@
         <!-- <hr class="sidebar-divider"> -->
 
         <!-- Heading -->
-        <div *ngIf="role=='ROLE_SYSTEM_ADMIN'">
-            <div class="sidebar-heading">
-                Administration
-            </div>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/admin/users']">
-                    <i class="fas fa-users"></i>
-                    <span> Users</span></a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/admin/aircrafts']">
-                    <i class="fas fa-plane"></i>
-                    <span> Aircrafts</span></a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/admin/flights']">
-                    <i class="fas fa-fighter-jet"></i>
-                    <span> All flights</span></a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/admin/spc']">
-                    <i class="fas fa-archive"></i>
-                    <span> Special cargo</span></a>
-            </li>
-        </div>
       <div class="sidebar-heading">
         Version
       </div>

@@ -43,16 +43,15 @@
                 Account type is required!
               </div>
             </div>
-            <button class="btn btn-warning btn-user btn-block">
-              Update profile
-            </button>
             <div class="form-group"><br>
               <div class="alert alert-danger" role="alert"
                    *ngIf="f.submitted && requestFailed">
                 {{ errorMessage }}
               </div>
             </div>
-            <hr>
+            <button class="btn btn-warning btn-user btn-block">
+              Update profile
+            </button>
           </form>
         </div>
       </div>
