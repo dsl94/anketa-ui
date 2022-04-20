@@ -22,7 +22,7 @@
                 <form class="user" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                   <br>
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-user" id="email"
+                    <input type="email" class="form-control" id="email"
                            name="email" aria-describedby="emailHelp" placeholder="Enter email"
                            [(ngModel)]="form.email" required #email="ngModel">
                     <div class="alert alert-danger" role="alert"
@@ -31,7 +31,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-user" id="name"
+                    <input type="text" class="form-control" id="name"
                            name="name" aria-describedby="nameHelp" placeholder="Enter name"
                            [(ngModel)]="form.name" required #name="ngModel">
                     <div class="alert alert-danger" role="alert"
@@ -40,7 +40,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-user" id="password"
+                    <input type="password" class="form-control" id="password"
                            name="password" aria-describedby="passwordHelp" placeholder="Enter password"
                            [(ngModel)]="form.password" required #password="ngModel">
                     <div class="alert alert-danger" role="alert"
@@ -62,7 +62,7 @@
                       Account type is required!
                     </div>
                   </div>
-                  <button class="btn btn-primary btn-user btn-block">
+                  <button class="btn btn-primary btn-block">
                     Register
                   </button>
                   <div class="form-group"><br>

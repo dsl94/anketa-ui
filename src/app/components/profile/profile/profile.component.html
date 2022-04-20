@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="card shadow mb-4 col-lg-8 offset-2">
+  <div class="card shadow mb-4 col-lg-12">
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">User profile</h6>
     </div>
@@ -8,49 +8,133 @@
         <div class="col-md-12">
           <form class="user" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
             <br>
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" class="form-control form-control-user" id="email"
-                     name="email" aria-describedby="emailHelp" placeholder="Enter email"
-                     [(ngModel)]="form.email" required #email="ngModel">
-              <div class="alert alert-danger" role="alert"
-                   *ngIf="email.errors && f.submitted">
-                Email is required!
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" class="form-control" id="email"
+                         name="email" aria-describedby="emailHelp" placeholder="Enter email"
+                         [(ngModel)]="form.email" required #email="ngModel">
+                  <div class="alert alert-danger" role="alert"
+                       *ngIf="email.errors && f.submitted">
+                    Email is required!
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" class="form-control" id="name"
+                         name="name" aria-describedby="nameHelp" placeholder="Enter name"
+                         [(ngModel)]="form.name" required #name="ngModel">
+                  <div class="alert alert-danger" role="alert"
+                       *ngIf="name.errors && f.submitted">
+                    Name is required!
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Account type</label>
+                  <select name="accountType" class="form-control" [(ngModel)]="form.accountType" #accountType="ngModel" required>
+                    <option value="PERSONAL">
+                      Personal
+                    </option>
+                    <option value="ORGANIZATION">
+                      Organization
+                    </option>
+                  </select>
+                  <div class="alert alert-danger" role="alert"
+                       *ngIf="accountType.errors && f.submitted">
+                    Account type is required!
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="form-group">
-              <label>Name</label>
-              <input type="text" class="form-control form-control-user" id="name"
-                     name="name" aria-describedby="nameHelp" placeholder="Enter name"
-                     [(ngModel)]="form.name" required #name="ngModel">
-              <div class="alert alert-danger" role="alert"
-                   *ngIf="name.errors && f.submitted">
-                Name is required!
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group"><br>
+                  <div class="alert alert-danger" role="alert"
+                       *ngIf="f.submitted && requestFailed">
+                    {{ errorMessage }}
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="form-group">
-              <label>Account type</label>
-              <select name="accountType" class="form-control" [(ngModel)]="form.accountType" #accountType="ngModel" required>
-                <option value="PERSONAL">
-                  Personal
-                </option>
-                <option value="ORGANIZATION">
-                  Organization
-                </option>
-              </select>
-              <div class="alert alert-danger" role="alert"
-                   *ngIf="accountType.errors && f.submitted">
-                Account type is required!
-              </div>
-            </div>
-            <div class="form-group"><br>
-              <div class="alert alert-danger" role="alert"
-                   *ngIf="f.submitted && requestFailed">
-                {{ errorMessage }}
-              </div>
-            </div>
-            <button class="btn btn-warning btn-user btn-block">
+            <button class="btn btn-warning float-right">
               Update profile
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card shadow mb-4 col-lg-12">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Change password</h6>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <form class="user" (ngSubmit)="f.form.valid && onSubmitPassword()" #f="ngForm" novalidate>
+            <br>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Current password</label>
+                  <input type="password" class="form-control" id="currentPassword"
+                         name="currentPassword" aria-describedby="currentPasswordHelp" placeholder="Enter current password"
+                         [(ngModel)]="formPassword.currentPassword" required #currentPassword="ngModel">
+                  <div class="alert alert-danger" role="alert"
+                       *ngIf="currentPassword.errors && f.submitted">
+                    Current password is required!
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>New password</label>
+                  <input type="password" class="form-control" id="newPassword"
+                         name="currentPassword" aria-describedby="newPasswordHelp" placeholder="Enter new password"
+                         [(ngModel)]="formPassword.newPassword" required #newPassword="ngModel">
+                  <div class="alert alert-danger" role="alert"
+                       *ngIf="newPassword.errors && f.submitted">
+                    New password is required!
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Repeat password</label>
+                  <input type="password" class="form-control" id="repeatPassword"
+                         name="repeatPassword" aria-describedby="repeatPasswordHelp" placeholder="Repeat password"
+                         [(ngModel)]="formPassword.repeatPassword" required #repeatPassword="ngModel">
+                  <div class="alert alert-danger" role="alert"
+                       *ngIf="repeatPassword.errors && f.submitted">
+                    Repeat password is required!
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group"><br>
+                  <div class="alert alert-danger" role="alert"
+                       *ngIf="requestPasswordFailed">
+                    {{ errorMessagePassword }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-warning float-right">
+              Change password
             </button>
           </form>
         </div>

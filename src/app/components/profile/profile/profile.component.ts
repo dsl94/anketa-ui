@@ -3,6 +3,7 @@ import {ProfileDto} from "../../../dto/user/profile.dto";
 import {UserService} from "../../../services/user.service";
 import {UpdateProfileDto} from "../../../dto/user/update-profile.dto";
 import {ToastrService} from "ngx-toastr";
+import {ChangePasswordDto} from "../../../dto/user/change-password.dto";
 
 @Component({
   selector: 'app-profile',
@@ -12,10 +13,17 @@ import {ToastrService} from "ngx-toastr";
 export class ProfileComponent implements OnInit {
 
   form: any = {
-    email: '',
-    name: '',
+    email: null,
+    name: null,
     accountType: 'PERSONAL',
   }
+  formPassword: any = {
+    currentPassword: null,
+    newPassword: null,
+    repeatPassword: null,
+  }
+  errorMessagePassword = '';
+  requestPasswordFailed = false;
   errorMessage = '';
   requestFailed = false;
 
@@ -48,7 +56,23 @@ export class ProfileComponent implements OnInit {
         this.errorMessage = Array.isArray(errm) ? errm[0] : errm;
         this.requestFailed = true;
       }
-    )
+    );
+  }
+
+  onSubmitPassword() {
+    const dto = new ChangePasswordDto(this.formPassword.currentPassword, this.formPassword.newPassword, this.formPassword.repeatPassword);
+    this.userService.changePassword(dto).subscribe(
+      data => {
+        this.toastr.success("Password changed")
+        this.requestPasswordFailed = false;
+      },
+      error => {
+        const errm = error.error.message;
+        this.errorMessagePassword = Array.isArray(errm) ? errm[0] : errm;
+        this.requestPasswordFailed = true;
+        console.log(this.errorMessagePassword, this.requestPasswordFailed)
+      }
+    );
   }
 
 }
