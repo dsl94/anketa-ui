@@ -10,7 +10,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~13.3.3",
+    "@angular/animations": "^13.3.3",
     "@angular/common": "~13.3.3",
     "@angular/compiler": "~13.3.3",
     "@angular/core": "~13.3.3",
@@ -26,6 +26,7 @@
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "leaflet": "^1.7.1",
+    "ngx-toastr": "^14.3.0",
     "postcss-loader": "^6.1.1",
     "rxjs": "~6.6.0",
     "sass-loader": "^12.1.0",

@@ -14,6 +14,8 @@ import {TokenService} from "./services/token.service";
 import {AuthInterceptor} from "./helpers/auth.interceptor";
 import { LoginComponent } from './components/auth/login/login.component';
 import {AuthGuard} from "./helpers/auth.guard";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
 
 const routes: Routes = [
   // osnovne rute
@@ -40,6 +42,8 @@ const routes: Routes = [
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     RouterModule.forRoot(routes),
   ],
   providers: [

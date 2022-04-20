@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../../services/auth.service";
 import {RegisterDto} from "../../../dto/auth/register.dto";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,7 @@ export class RegisterComponent implements OnInit {
   registerFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +33,7 @@ export class RegisterComponent implements OnInit {
       this.form.accountType
     );
     this.authService.register(register).subscribe((data) => {
+      this.toastr.success('Registration successful')
       this.router.navigate(['/login']);
     },
       error => {
