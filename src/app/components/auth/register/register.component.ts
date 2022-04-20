@@ -16,6 +16,8 @@ export class RegisterComponent implements OnInit {
     accountType: 'PERSONAL',
     password: null,
   };
+  registerFailed = false;
+  errorMessage = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -31,7 +33,12 @@ export class RegisterComponent implements OnInit {
     );
     this.authService.register(register).subscribe((data) => {
       this.router.navigate(['/login']);
-    });
+    },
+      error => {
+        const errm = error.error.message;
+        this.errorMessage = Array.isArray(errm) ? errm[0] : errm;
+        this.registerFailed = true;
+      });
   }
 
 }

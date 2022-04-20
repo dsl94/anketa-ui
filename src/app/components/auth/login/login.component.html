@@ -1,50 +1,67 @@
-<div class="vh-100">
-  <div class="authincation h-100">
-    <div class="container h-100">
-      <div class="row justify-content-center h-100 align-items-center">
-        <div class="col-md-6">
-          <div class="authincation-content">
-            <div class="row no-gutters">
-              <div class="col-xl-12">
-                <div class="auth-form">
-                  <div class="text-center mb-3">
-                    <h2>Welcome to Product Central</h2>
-                  </div>
-                  <h4 class="text-center mb-4">Sign in to access your projects</h4>
-                  <form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-                    <div class="mb-3">
-                      <label class="mb-1"><strong>Email</strong></label>
-                      <input type="email" class="form-control form-control-user" id="email"
-                             name="email" aria-describedby="emailHelp" placeholder="Enter email"
-                             [(ngModel)]="form.email" required #email="ngModel">
-                      <div class="alert alert-danger" role="alert"
-                           *ngIf="email.errors && f.submitted">
-                        Email is required!
-                      </div>
-                    </div>
-                    <div class="mb-3">
-                      <label class="mb-1"><strong>Password</strong></label>
-                      <input type="password" class="form-control form-control-user" id="password"
-                             name="password" aria-describedby="passwordHelp" placeholder="Enter password"
-                             [(ngModel)]="form.password" required #password="ngModel">
-                      <div class="alert alert-danger" role="alert"
-                           *ngIf="password.errors && f.submitted">
-                        Password is required!
-                      </div>
-                    </div>
-                    <div class="text-center mt-4">
-                      <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                    </div>
-                  </form>
-                  <div class="new-account mt-3">
-                    <p>Don't have an account? <a class="text-primary" href="page-login.html">Sign up</a></p>
-                  </div>
+<div class="container">
+
+  <!-- Outer Row -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row justify-content-center ">
+
+    <div class="col-xl-10 col-lg-12 col-md-9">
+
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-3 d-none d-lg-block"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Welcome to Product Central</h1>
                 </div>
+                <form class="user" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                  <div class="form-group">
+                    <input type="email" class="form-control form-control-user" id="email"
+                           name="email" aria-describedby="emailHelp" placeholder="Enter email"
+                           [(ngModel)]="form.email" required #email="ngModel">
+                    <div class="alert alert-danger" role="alert"
+                         *ngIf="email.errors && f.submitted">
+                      Email is required!
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control form-control-user" id="password"
+                           name="password" placeholder="Password" [(ngModel)]="form.password" required
+                           #password="ngModel">
+                    <div class="alert alert-danger" role="alert"
+                         *ngIf="password.errors && f.submitted">
+                      <div *ngIf="password.errors">Password is required</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary btn-user btn-block">
+                    Login
+                  </button>
+                  <div class="form-group"><br>
+                    <div class="alert alert-danger" role="alert"
+                         *ngIf="f.submitted && isLoginFailed">
+                      {{ errorMessage }}
+                    </div>
+                  </div>
+                  <hr>
+                  <p>Don't have account yet? <a [routerLink]="['/register']">Register here</a></p>
+                </form>
               </div>
             </div>
+            <div class="col-lg-3 d-none d-lg-block"></div>
           </div>
         </div>
       </div>
+
     </div>
+
   </div>
+
 </div>
