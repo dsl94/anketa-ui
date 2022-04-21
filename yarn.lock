@@ -1389,6 +1389,13 @@
   resolved "https://registry.yarnpkg.com/@types/cors/-/cors-2.8.12.tgz#6b2c510a7ad7039e98e7b8d3d6598f4359e5c080"
   integrity sha512-vt+kDhq/M2ayberEtJcIN/hxXy1Pk+59g2FV/ZQceeaTyCtCucjL2Q7FXlFjtWn4n15KCr1NE2lNNFhp0lEThw==
 
+"@types/datatables.net@^1.10.21":
+  version "1.10.21"
+  resolved "https://registry.yarnpkg.com/@types/datatables.net/-/datatables.net-1.10.21.tgz#dcb0b1c9a0b3051ad04754f7f605ef21e1cdcb3d"
+  integrity sha512-fXtWlm70PUEv0k5NfpI+BmHTTHxU6XMkKF0B2G3ly2g64EUYJc2SuNI9hZ7l/+aComO0IpLv0eLAOHGEfzMFiQ==
+  dependencies:
+    "@types/jquery" "*"
+
 "@types/eslint-scope@^3.7.3":
   version "3.7.3"
   resolved "https://registry.yarnpkg.com/@types/eslint-scope/-/eslint-scope-3.7.3.tgz#125b88504b61e3c8bc6f870882003253005c3224"
@@ -1446,6 +1453,13 @@
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.8.2.tgz#27ab0aaac29581bcbde5774e1843f90df977078e"
   integrity sha512-u5h7dqzy2XpXTzhOzSNQUQpKGFvROF8ElNX9P/TJvsHnTg/JvsAseVsGWQAQQldqanYaM+5kwxW909BBFAUYsg==
 
+"@types/jquery@*", "@types/jquery@^3.5.9":
+  version "3.5.14"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.5.14.tgz#ac8e11ee591e94d4d58da602cb3a5a8320dee577"
+  integrity sha512-X1gtMRMbziVQkErhTQmSe2jFwwENA/Zr+PprCkF63vFq+Yt5PZ4AlKqgmeNlwgn7dhsXEK888eIW2520EpC+xg==
+  dependencies:
+    "@types/sizzle" "*"
+
 "@types/json-schema@*", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.8", "@types/json-schema@^7.0.9":
   version "7.0.11"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.11.tgz#d421b6c527a3037f7c84433fd2c4229e016863d3"
@@ -1500,6 +1514,11 @@
   dependencies:
     "@types/mime" "^1"
     "@types/node" "*"
+
+"@types/sizzle@*":
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/@types/sizzle/-/sizzle-2.3.3.tgz#ff5e2f1902969d305225a047c8a0fd5c915cebef"
+  integrity sha512-JYM8x9EGF163bEyhdJBpR2QX1R5naCJHC8ucJylJ3w9/CVBaskdQ8WqBf8MmQrd1kRvp/a4TS8HJ+bxzR7ZJYQ==
 
 "@types/sockjs@^0.3.33":
   version "0.3.33"

@@ -14,6 +14,7 @@
               <div class="p-5">
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Welcome to Product Central</h1>
+                  <h5 class="h5 text-gray-900 mb-4">Enter your login details bellow</h5>
                 </div>
                 <form class="user" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                   <div class="form-group">
@@ -27,7 +28,7 @@
                   </div>
                   <div class="form-group">
                     <input type="password" class="form-control" id="password"
-                           name="password" placeholder="Password" [(ngModel)]="form.password" required
+                           name="password" placeholder="Enter password" [(ngModel)]="form.password" required
                            #password="ngModel">
                     <div class="alert alert-danger" role="alert"
                          *ngIf="password.errors && f.submitted">

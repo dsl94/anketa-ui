@@ -18,6 +18,12 @@ export class UserService {
     );
   }
 
+  getAllUsers() {
+    return this.http.get(this.baseUrl + '/users').pipe(
+      map((data: any) => data.map((item: any) => this.mapProfile(item))),
+    );
+  }
+
   updateProfile(profileDto: UpdateProfileDto) {
     return this.http.put(this.baseUrl + '/profile', profileDto);
   }

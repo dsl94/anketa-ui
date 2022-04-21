@@ -14,18 +14,17 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-<!--        <div *ngIf="role=='ROLE_ADMIN'">-->
-<!--            <li class="nav-item" routerLinkActive="active">-->
-<!--                <a class="nav-link" [routerLink]="['/airadmin/dashboard']">-->
-<!--                    <i class="fas fa-fw fa-tachometer-alt"></i>-->
-<!--                    <span>Dashboard</span></a>-->
-<!--            </li>-->
-<!--            <li class="nav-item" routerLinkActive="active">-->
-<!--                <a class="nav-link" [routerLink]="['/central/profile']">-->
-<!--                    <i class="fas fa-fw fa-user"></i>-->
-<!--                    <span>Profile</span></a>-->
-<!--            </li>-->
-<!--        </div>-->
+        <div *ngIf="role=='ADMIN'">
+          <hr class="sidebar-divider">
+          <div class="sidebar-heading">
+            Administration
+          </div>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/admin/users']">
+              <i class="fas fa-fw fa-users"></i>
+              <span>Users</span></a>
+          </li>
+        </div>
 
         <div *ngIf="role=='USER'">
           <hr class="sidebar-divider">
