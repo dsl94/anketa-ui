@@ -22,6 +22,7 @@ import { ProfileComponent } from './components/profile/profile/profile.component
 import {UserService} from "./services/user.service";
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import {DataTablesModule} from "angular-datatables";
+import { UserInfoComponent } from './components/users/user-info/user-info.component';
 
 const routes: Routes = [
   // osnovne rute
@@ -45,7 +46,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: ['ADMIN'] },
     children: [
-      {path: 'users', component: UserListComponent}
+      { path: 'users', component: UserListComponent },
+      { path: 'users/:id', component: UserInfoComponent },
     ]
   },
 ];
@@ -59,7 +61,8 @@ const routes: Routes = [
     ForgotPasswordComponent,
     ResetPasswordComponent,
     ProfileComponent,
-    UserListComponent
+    UserListComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,

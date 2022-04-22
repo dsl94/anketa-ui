@@ -24,6 +24,12 @@ export class UserService {
     );
   }
 
+  getUserById(id: string) {
+    return this.http.get(this.baseUrl + '/users/' + id).pipe(
+      map((data: any) => this.mapProfile(data))
+    );
+  }
+
   updateProfile(profileDto: UpdateProfileDto) {
     return this.http.put(this.baseUrl + '/profile', profileDto);
   }

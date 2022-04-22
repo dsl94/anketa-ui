@@ -22,8 +22,8 @@
           <td>{{getRoleName(user.role)}}</td>
           <td><span class="badge badge-{{getAccountColor(user.accountType)}}">{{getAccountType(user.accountType)}}</span></td>
           <td>
-<!--            <a [routerLink]="['/airadmin/profile-info', user.userName]" class="btn btn-info btn-circle btn-sm"><i-->
-<!--              class="fas fa-info-circle"></i></a> &nbsp;-->
+            <a [routerLink]="['/admin/users', user.id]" class="btn btn-info btn-circle btn-sm"><i
+              class="fas fa-info-circle"></i></a> &nbsp;
 <!--            <button type="button" (click)="deleteUser(user.userName)" class="btn btn-danger btn-circle btn-sm"><i-->
 <!--              class="fas fa-trash"></i></button>&nbsp;-->
 <!--            <button *ngIf="!pilots" (click)="resetPassword(user.userName)" type="button" class="btn btn-warning btn-circle btn-sm"><i-->
