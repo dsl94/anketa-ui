@@ -17,6 +17,20 @@
         <div *ngIf="role=='ADMIN'">
           <hr class="sidebar-divider">
           <div class="sidebar-heading">
+            Product hub
+          </div>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/central/projects']">
+              <i class="fas fa-fw fa-laptop-house"></i>
+              <span>My projects</span></a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/user/profile']">
+              <i class="fas fa-fw fa-laptop"></i>
+              <span>Guest projects</span></a>
+          </li>
+          <hr class="sidebar-divider">
+          <div class="sidebar-heading">
             Administration
           </div>
           <li class="nav-item" routerLinkActive="active">
@@ -32,7 +46,7 @@
             Product hub
           </div>
           <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['/user/profile']">
+                <a class="nav-link" [routerLink]="['/central/projects']">
                     <i class="fas fa-fw fa-laptop-house"></i>
                     <span>My projects</span></a>
           </li>

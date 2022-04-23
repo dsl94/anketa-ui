@@ -23,6 +23,9 @@ import {UserService} from "./services/user.service";
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import {DataTablesModule} from "angular-datatables";
 import { UserInfoComponent } from './components/users/user-info/user-info.component';
+import { ProjectListComponent } from './components/projects/project-list/project-list.component';
+import {ProjectService} from "./services/project.service";
+import {ProjectFilter} from "./project-filter";
 
 const routes: Routes = [
   // osnovne rute
@@ -35,9 +38,10 @@ const routes: Routes = [
     path: 'central',
     component: MainComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['USER'] },
+    data: { roles: ['USER', 'ADMIN'] },
     children: [
-      {path: 'profile', component: ProfileComponent}
+      {path: 'profile', component: ProfileComponent},
+      {path: 'projects', component: ProjectListComponent}
     ]
     },
   {
@@ -55,6 +59,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    ProjectFilter,
     RegisterComponent,
     LoginComponent,
     MainComponent,
@@ -62,7 +67,8 @@ const routes: Routes = [
     ResetPasswordComponent,
     ProfileComponent,
     UserListComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    ProjectListComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +85,8 @@ const routes: Routes = [
     { provide: 'BASE_API_URL', useValue: environment.apiUrl },
     AuthService,
     TokenService,
-    UserService
+    UserService,
+    ProjectService
   ],
   bootstrap: [AppComponent]
 })
