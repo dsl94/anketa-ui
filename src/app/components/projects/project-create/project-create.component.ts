@@ -62,8 +62,11 @@ export class ProjectCreateComponent implements OnInit {
       })
   }
 
-  mapToForm(project: any) {
-    console.log(project);
-
+  pageName() {
+    if (this.id) {
+      return 'Project info';
+    } else {
+      return 'Create new project';
+    }
   }
 }
