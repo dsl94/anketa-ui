@@ -52,7 +52,7 @@ export class ProjectCreateComponent implements OnInit {
       this.form.inProgress ? null : this.form.endDate
     );
     this.projectService.createProject(dto).subscribe(data => {
-      this.toastr.success("Project created");
+      this.toastr.success(this.id ? "Project saved" : "Project created");
       this.router.navigate(['/central/projects']);
     },
       error => {
