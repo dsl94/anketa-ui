@@ -3,6 +3,7 @@ import {ProfileDto} from "../dto/user/profile.dto";
 import {ProjectResponseDto} from "../dto/project/project-response.dto";
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
+import {CreateProjectDto} from "../dto/project/create-project.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,10 @@ export class ProjectService {
     return this.http.get(this.baseUrl + '/projects').pipe(
       map((data: any) => data.map((item: any) => this.mapToProject(item))),
     );
+  }
+
+  createProject(dto: CreateProjectDto) {
+    return this.http.post(this.baseUrl + '/projects', dto);
   }
 
   private mapToProject(item: any) {

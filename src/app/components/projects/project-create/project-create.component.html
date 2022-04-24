@@ -1,0 +1,98 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Create new project</h1>
+</div>
+
+<form class="user" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Collapsable Card Example -->
+      <div class="card shadow mb-4">
+        <!-- Card Header - Accordion -->
+        <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+          <h6 class="m-0 font-weight-bold text-primary">Basic project informations</h6>
+        </a>
+        <!-- Card Content - Collapse -->
+        <div class="collapse show" id="collapseCardExample" style="">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Project name</label>
+                  <input type="text" class="form-control" id="name"
+                         name="name" aria-describedby="nameHelp" placeholder="Enter project name"
+                         [(ngModel)]="form.name" required #name="ngModel">
+                  <div class="alert alert-danger" role="alert"
+                       *ngIf="name.errors && f.submitted">
+                    Project name is required!
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group float-right" style="margin-top:37px; margin-right: 140px">
+                  <div class="custom-control custom-switch">
+                    <input [(ngModel)]="form.inProgress" name="inProgress" type="checkbox" class="custom-control-input" id="inProgress">
+                    <label class="custom-control-label" for="inProgress">Project is in progress</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Project description</label>
+                  <textarea class="form-control" id="description"
+                         name="name" aria-describedby="descriptionHelp" placeholder="Enter project description"
+                            [(ngModel)]="form.description" #description="ngModel"> </textarea>
+                  </div>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Project start date</label>
+                  <input type="date" class="form-control" id="startDate"
+                         name="startDate" aria-describedby="startDateHelp"
+                         [(ngModel)]="form.startDate" required #startDate="ngModel">
+                  <div class="alert alert-danger" role="alert"
+                       *ngIf="startDate.errors && f.submitted">
+                    Start date is required!
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Project end date</label>
+                  <input [readonly]="form.inProgress" type="date" class="form-control" id="endDate"
+                         name="endDate" aria-describedby="endDateHelp"
+                         [(ngModel)]="form.endDate" #endDate="ngModel">
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="col-md-3 float-right offset-9">
+      <div class="float-right">
+        <button class="btn btn-success">
+          Create
+        </button>
+        <a [routerLink]="['/central/projects']" class="btn btn-secondary" style="margin-left: 10px">
+          Cancel
+        </a>
+      </div>
+    </div>
+    <div class="form-group"><br>
+      <div class="alert alert-danger" role="alert"
+           *ngIf="f.submitted && isRequestFailed">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</form>

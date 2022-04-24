@@ -26,6 +26,7 @@ import { UserInfoComponent } from './components/users/user-info/user-info.compon
 import { ProjectListComponent } from './components/projects/project-list/project-list.component';
 import {ProjectService} from "./services/project.service";
 import {ProjectFilter} from "./project-filter";
+import { ProjectCreateComponent } from './components/projects/project-create/project-create.component';
 
 const routes: Routes = [
   // osnovne rute
@@ -41,7 +42,8 @@ const routes: Routes = [
     data: { roles: ['USER', 'ADMIN'] },
     children: [
       {path: 'profile', component: ProfileComponent},
-      {path: 'projects', component: ProjectListComponent}
+      {path: 'projects', component: ProjectListComponent},
+      {path: 'project-create', component: ProjectCreateComponent}
     ]
     },
   {
@@ -68,7 +70,8 @@ const routes: Routes = [
     ProfileComponent,
     UserListComponent,
     UserInfoComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    ProjectCreateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">My projects</h1>
+  <h1 class="h3 mb-0 text-gray-800">My projects
+    <a [routerLink]="['/central/project-create']" class="btn btn-success btn-sm">Create new project</a>
+  </h1>
   <div class="form-group">
     <input type="text" autofocus="autofocus" style="display:none" /> <!-- Placeholder to stop autofocus -->
     <input type="email" class="form-control form-control-sm" style="margin-top: 15px" id="search-text" aria-describedby="search-text"
