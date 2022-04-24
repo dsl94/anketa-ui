@@ -4,6 +4,7 @@ import {UserService} from "../../../services/user.service";
 import {ToastrService} from "ngx-toastr";
 import {ProjectResponseDto} from "../../../dto/project/project-response.dto";
 import {ProjectService} from "../../../services/project.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-project-list',
@@ -14,7 +15,7 @@ export class ProjectListComponent implements OnInit {
 
   searchText = '';
   projects: ProjectResponseDto[] = [];
-  constructor(private projectService: ProjectService, private toastr: ToastrService) { }
+  constructor(private projectService: ProjectService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.projectService.getLoggedInUserProjects().subscribe((data) => {
@@ -36,5 +37,9 @@ export class ProjectListComponent implements OnInit {
     } else {
       return 'text-success';
     }
+  }
+
+  goToCreate() {
+    this.router.navigate(['/central/project-create']);
   }
 }

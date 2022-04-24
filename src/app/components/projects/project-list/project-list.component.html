@@ -1,6 +1,5 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">My projects
-    <a [routerLink]="['/central/project-create']" class="btn btn-success btn-sm">Create new project</a>
   </h1>
   <div class="form-group">
     <input type="text" autofocus="autofocus" style="display:none" /> <!-- Placeholder to stop autofocus -->
@@ -12,6 +11,13 @@
 
 <!-- Content Row -->
 <div class="row">
+  <div class="col-md-4 mb-4">
+    <div class="two align-items-center add-card" (click)="goToCreate()">
+      <div class="px-3 pt-3 align-items-center">
+        <h3 class="text-center text-success" style="margin-top: 35px"><span class="fa fa-plus"></span> Create new project</h3>
+      </div>
+    </div>
+  </div>
   <div class="col-md-4 mb-4" *ngFor="let project of projects | projectFilter: searchText">
     <div class="two">
       <div class="px-3 pt-3">

@@ -56,6 +56,16 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }
 
+.add-card {
+  height: 100%;
+  background-color: #fff;
+}
+
+.add-card:hover {
+  background-color: #eaebec;
+  cursor: pointer;
+}
+
 .star {
   font-size: 20px !important;
   color: #b1b4b7
