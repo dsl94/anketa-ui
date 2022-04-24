@@ -43,7 +43,8 @@ const routes: Routes = [
     children: [
       {path: 'profile', component: ProfileComponent},
       {path: 'projects', component: ProjectListComponent},
-      {path: 'project-create', component: ProjectCreateComponent}
+      {path: 'project-create', component: ProjectCreateComponent},
+      {path: 'project-info/:id', component: ProjectCreateComponent}
     ]
     },
   {

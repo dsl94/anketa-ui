@@ -22,6 +22,12 @@ export class ProjectService {
     return this.http.post(this.baseUrl + '/projects', dto);
   }
 
+  getProjectById(id: string) {
+    return this.http.get(this.baseUrl + '/projects/' + id).pipe(
+      map((data: any) => this.mapToProject(data))
+    );
+  }
+
   private mapToProject(item: any) {
     return new ProjectResponseDto(
       item.id,

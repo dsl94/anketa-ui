@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProjectService} from "../../../services/project.service";
 import {CreateProjectDto} from "../../../dto/project/create-project.dto";
 import {ToastrService} from "ngx-toastr";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-project-create',
@@ -19,12 +19,28 @@ export class ProjectCreateComponent implements OnInit {
     endDate: null
   }
 
+  id = null;
+
   isRequestFailed = false;
   errorMessage = '';
 
-  constructor(private projectService: ProjectService, private toastr: ToastrService, private router: Router) { }
+  constructor(
+    private projectService: ProjectService,
+    private toastr: ToastrService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = this.activatedRoute.snapshot.params['id'];
+    if (this.id) {
+      this.projectService.getProjectById(this.id).subscribe((data) => {
+        this.form.name = data.name;
+        this.form.description = data.description;
+        this.form.inProgress = data.inProgress;
+        this.form.startDate = data.startDate.toString().slice(0, 10);
+        this.form.endDate = data.endDate.toString().slice(0, 10);
+      });
+    }
   }
 
   onSubmit() {
@@ -44,5 +60,10 @@ export class ProjectCreateComponent implements OnInit {
         this.errorMessage = Array.isArray(errm) ? errm[0] : errm;
         this.isRequestFailed = true;
       })
+  }
+
+  mapToForm(project: any) {
+    console.log(project);
+
   }
 }
