@@ -18,6 +18,10 @@ export class ProjectListComponent implements OnInit {
   constructor(private projectService: ProjectService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
+   this.loadData();
+  }
+
+  loadData() {
     this.projectService.getLoggedInUserProjects().subscribe((data) => {
       this.projects = data;
     });
@@ -41,5 +45,25 @@ export class ProjectListComponent implements OnInit {
 
   goToCreate() {
     this.router.navigate(['/central/project-create']);
+  }
+
+  delete(id: string) {
+    this.projectService.deleteProject(id).subscribe(data => {
+      this.toastr.info("Project deleted");
+      this.loadData();
+    },
+      error => {
+        this.toastr.error("Problem with deleting project");
+      });
+  }
+
+  getPosition(i: number) {
+    if (i==1) {
+      return 'left';
+    }
+    if (i>1 && (i-1)%3 == 0) {
+      return 'left';
+    }
+    return 'top';
   }
 }

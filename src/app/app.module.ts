@@ -27,6 +27,7 @@ import { ProjectListComponent } from './components/projects/project-list/project
 import {ProjectService} from "./services/project.service";
 import {ProjectFilter} from "./project-filter";
 import { ProjectCreateComponent } from './components/projects/project-create/project-create.component';
+import {ConfirmationPopoverModule} from "angular-confirmation-popover";
 
 const routes: Routes = [
   // osnovne rute
@@ -83,6 +84,9 @@ const routes: Routes = [
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(routes),
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger', // set defaults here
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

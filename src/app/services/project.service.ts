@@ -28,6 +28,10 @@ export class ProjectService {
     );
   }
 
+  deleteProject(id: string) {
+    return this.http.delete(this.baseUrl + "/projects/" + id);
+  }
+
   private mapToProject(item: any) {
     return new ProjectResponseDto(
       item.id,
