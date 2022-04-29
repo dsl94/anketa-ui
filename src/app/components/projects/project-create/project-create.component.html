@@ -77,7 +77,7 @@
       </div>
     </div>
 
-<!--  Repository fields -->
+<!--  REPOSITORY FIELDS -->
   <div class="row">
     <div class="col-md-12">
       <!-- Collapsable Card Example -->
@@ -109,18 +109,69 @@
                   </div>
                 </div>
               </div>
-<!--              <div class="col-md-1">-->
-<!--                <div class="form-group">-->
-<!--                  <button style="margin-top: 34px" type="button" class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></button>-->
-<!--                </div>-->
-<!--              </div>-->
-
             </div>
 
             <div class="row">
               <div class="col-md-3 float-right offset-9">
                 <div class="float-right">
                   <button type="button" (click)="addRepositoryField()" class="btn btn-info">
+                    <span class="fa fa-plus"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--  TEAM FIELDS -->
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Collapsable Card Example -->
+      <div class="card shadow mb-4">
+        <!-- Card Header - Accordion -->
+        <a href="#teamColapse" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="trues" aria-controls="collapseCardExample">
+          <h6 class="m-0 font-weight-bold text-primary">Project team</h6>
+        </a>
+        <!-- Card Content - Collapse -->
+        <div class="collapse show" id="teamColapse" style="">
+          <div class="card-body">
+            <div class="row" *ngFor="let tf of form.team let i = index">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Member name</label>
+                  <input type="text" class="form-control" id="tfname{{i}}"
+                         name="tfname{{i}}" aria-describedby="teamMemberHelp" placeholder="Enter member name"
+                         [(ngModel)]="form.team[i].name">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Member position</label>
+                    <input type="text" class="form-control" id="tfposition{{i}}"
+                           name="tfposition{{i}}" aria-describedby="memberPositionHelp" placeholder="Enter member position"
+                           [(ngModel)]="form.team[i].position">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <div class="form-group" style="margin-top:37px; margin-right: 3px">
+                    <div class="custom-control custom-switch">
+                      <input [(ngModel)]="form.team[i].stillOnTeam" name="tfstillonteam{{i}}" type="checkbox" class="custom-control-input" id="tfstillonteam{{i}}">
+                      <label class="custom-control-label" for="tfstillonteam{{i}}">Still on project</label>
+                      <button style="margin-top: -3px" (click)="removeTeamField(i)" type="button" class="btn btn-danger btn-sm float-right"><span class="fa fa-trash"></span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3 float-right offset-9">
+                <div class="float-right">
+                  <button type="button" (click)="addTeamField()" class="btn btn-info">
                     <span class="fa fa-plus"></span>
                   </button>
                 </div>

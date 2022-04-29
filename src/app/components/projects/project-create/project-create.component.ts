@@ -17,7 +17,8 @@ export class ProjectCreateComponent implements OnInit {
     inProgress: true,
     startDate: null,
     endDate: null,
-    repositoryFields: []
+    repositoryFields: [],
+    team: []
   }
 
   id = null;
@@ -43,6 +44,7 @@ export class ProjectCreateComponent implements OnInit {
           this.form.endDate = data.endDate.toString().slice(0, 10);
         }
         this.form.repositoryFields = data.repositoryFields;
+        this.form.team = data.team;
       });
     }
   }
@@ -54,7 +56,8 @@ export class ProjectCreateComponent implements OnInit {
       this.form.inProgress,
       this.form.startDate,
       this.form.inProgress ? null : this.form.endDate,
-      this.form.repositoryFields
+      this.form.repositoryFields,
+      this.form.team
     );
     this.projectService.createProject(dto).subscribe(data => {
       this.toastr.success(this.id ? "Project saved" : "Project created");
@@ -75,6 +78,7 @@ export class ProjectCreateComponent implements OnInit {
     }
   }
 
+  // Repository
   addRepositoryField() {
     this.form.repositoryFields.push(
       {
@@ -83,8 +87,21 @@ export class ProjectCreateComponent implements OnInit {
       }
     );
   }
-
   removeRepositoryField(i: number) {
     this.form.repositoryFields.splice(i, 1);
+  }
+
+  // Team
+  addTeamField() {
+    this.form.team.push(
+      {
+        name: null,
+        position: null,
+        stillOnTeam: true
+      }
+    );
+  }
+  removeTeamField(i: number) {
+    this.form.team.splice(i, 1);
   }
 }
