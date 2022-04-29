@@ -35,17 +35,7 @@ export class ProjectCreateComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
     if (this.id) {
-      this.projectService.getProjectById(this.id).subscribe((data) => {
-        this.form.name = data.name;
-        this.form.description = data.description;
-        this.form.inProgress = data.inProgress;
-        this.form.startDate = data.startDate.toString().slice(0, 10);
-        if (this.form.endDate != null) {
-          this.form.endDate = data.endDate.toString().slice(0, 10);
-        }
-        this.form.repositoryFields = data.repositoryFields;
-        this.form.team = data.team;
-      });
+      this.loadProject(this.id);
     }
   }
 
@@ -59,15 +49,42 @@ export class ProjectCreateComponent implements OnInit {
       this.form.repositoryFields,
       this.form.team
     );
-    this.projectService.createProject(dto).subscribe(data => {
-      this.toastr.success(this.id ? "Project saved" : "Project created");
-      this.router.navigate(['/central/projects']);
-    },
-      error => {
-        const errm = error.error.message;
-        this.errorMessage = Array.isArray(errm) ? errm[0] : errm;
-        this.isRequestFailed = true;
-      })
+    if (this.id) {
+      this.projectService.updateProject(this.id, dto).subscribe(data => {
+          this.toastr.success("Project saved");
+          // @ts-ignore
+          this.loadProject(this.id);
+        },
+        error => {
+          const errm = error.error.message;
+          this.errorMessage = Array.isArray(errm) ? errm[0] : errm;
+          this.isRequestFailed = true;
+        });
+    } else {
+      this.projectService.createProject(dto).subscribe(data => {
+          this.toastr.success("Project created");
+          this.router.navigate(['/central/projects']);
+        },
+        error => {
+          const errm = error.error.message;
+          this.errorMessage = Array.isArray(errm) ? errm[0] : errm;
+          this.isRequestFailed = true;
+        });
+    }
+  }
+
+  loadProject(id: string) {
+    this.projectService.getProjectById(id).subscribe((data) => {
+      this.form.name = data.name;
+      this.form.description = data.description;
+      this.form.inProgress = data.inProgress;
+      this.form.startDate = data.startDate.toString().slice(0, 10);
+      if (this.form.endDate != null) {
+        this.form.endDate = data.endDate.toString().slice(0, 10);
+      }
+      this.form.repositoryFields = data.repositoryFields;
+      this.form.team = data.team;
+    });
   }
 
   pageName() {
