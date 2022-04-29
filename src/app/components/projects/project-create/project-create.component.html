@@ -126,6 +126,47 @@
     </div>
   </div>
 
+<!--  TASK BOARD FIELDS -->
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Collapsable Card Example -->
+      <div class="card shadow mb-4">
+        <!-- Card Header - Accordion -->
+        <a href="#taskColapse" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+          <h6 class="m-0 font-weight-bold text-primary">Project management tools - task/story boards</h6>
+        </a>
+        <!-- Card Content - Collapse -->
+        <div class="collapse show" id="taskColapse" style="">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4" *ngFor="let tf of form.taskBoardLinks let i = index">
+                <div class="form-group">
+                  <label>Link for project management tool or task/issue board</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="tf{{i}}"
+                           name="tf{{i}}" aria-describedby="repositoryNameHelp" placeholder="Enter repository url"
+                           [(ngModel)]="form.taskBoardLinks[i].url">
+                    <button (click)="removeTaskBoardFields(i)" type="button" class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3 float-right offset-9">
+                <div class="float-right">
+                  <button type="button" (click)="addTaskBoardField()" class="btn btn-info">
+                    <span class="fa fa-plus"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <!--  TEAM FIELDS -->
   <div class="row">
     <div class="col-md-12">

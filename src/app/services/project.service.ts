@@ -46,7 +46,8 @@ export class ProjectService {
       item.endDate,
       item.createdAt,
       item.repositoryFields,
-      item.team
+      item.team,
+      item.taskBoardLinks
     );
   }
 }

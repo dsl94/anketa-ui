@@ -1,5 +1,6 @@
 import {RepositoryFieldEntity} from "./repository-field.entity";
 import {ProjectMemberEntity} from "./project-member.entity";
+import {ProjectTboardEntity} from "./project-tboard.entity";
 
 export class CreateProjectDto {
   name: string;
@@ -8,9 +9,10 @@ export class CreateProjectDto {
   startDate: Date;
   endDate: Date;
   repositoryFields: RepositoryFieldEntity[];
-  team: ProjectMemberEntity[]
+  team: ProjectMemberEntity[];
+  taskBoardLinks: ProjectTboardEntity[];
 
-  constructor(name: string, description: string, inProgress: boolean, startDate: Date, endDate: Date, repositoryFields: RepositoryFieldEntity[], team: ProjectMemberEntity[]) {
+  constructor(name: string, description: string, inProgress: boolean, startDate: Date, endDate: Date, repositoryFields: RepositoryFieldEntity[], team: ProjectMemberEntity[], taskBoardLinks: ProjectTboardEntity[]) {
     this.name = name;
     this.description = description;
     this.inProgress = inProgress;
@@ -18,5 +20,6 @@ export class CreateProjectDto {
     this.endDate = endDate;
     this.repositoryFields = repositoryFields;
     this.team = team;
+    this.taskBoardLinks = taskBoardLinks;
   }
 }
