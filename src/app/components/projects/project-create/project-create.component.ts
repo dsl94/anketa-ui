@@ -16,7 +16,8 @@ export class ProjectCreateComponent implements OnInit {
     description: null,
     inProgress: true,
     startDate: null,
-    endDate: null
+    endDate: null,
+    repositoryFields: []
   }
 
   id = null;
@@ -38,7 +39,10 @@ export class ProjectCreateComponent implements OnInit {
         this.form.description = data.description;
         this.form.inProgress = data.inProgress;
         this.form.startDate = data.startDate.toString().slice(0, 10);
-        this.form.endDate = data.endDate.toString().slice(0, 10);
+        if (this.form.endDate != null) {
+          this.form.endDate = data.endDate.toString().slice(0, 10);
+        }
+        this.form.repositoryFields = data.repositoryFields;
       });
     }
   }
@@ -49,7 +53,8 @@ export class ProjectCreateComponent implements OnInit {
       this.form.description,
       this.form.inProgress,
       this.form.startDate,
-      this.form.inProgress ? null : this.form.endDate
+      this.form.inProgress ? null : this.form.endDate,
+      this.form.repositoryFields
     );
     this.projectService.createProject(dto).subscribe(data => {
       this.toastr.success(this.id ? "Project saved" : "Project created");
@@ -68,5 +73,18 @@ export class ProjectCreateComponent implements OnInit {
     } else {
       return 'Create new project';
     }
+  }
+
+  addRepositoryField() {
+    this.form.repositoryFields.push(
+      {
+        name: null,
+        url: null
+      }
+    );
+  }
+
+  removeRepositoryField(i: number) {
+    this.form.repositoryFields.splice(i, 1);
   }
 }
