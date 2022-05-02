@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../../services/user.service";
 import {ToastrService} from "ngx-toastr";
 import {ProfileDto} from "../../../dto/user/profile.dto";
+import {AdminUserResponseDto} from "../../../dto/user/admin-user-response.dto";
 
 @Component({
   selector: 'app-user-list',
@@ -10,7 +11,7 @@ import {ProfileDto} from "../../../dto/user/profile.dto";
 })
 export class UserListComponent implements OnInit {
 
-  users: ProfileDto[] = [];
+  users: AdminUserResponseDto[] = [];
   dtOptions: DataTables.Settings = {};
   fetched: boolean = false;
 

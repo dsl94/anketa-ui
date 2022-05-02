@@ -5,6 +5,7 @@ import {ProfileDto} from "../dto/user/profile.dto";
 import { map } from 'rxjs/operators';
 import {UpdateProfileDto} from "../dto/user/update-profile.dto";
 import {ChangePasswordDto} from "../dto/user/change-password.dto";
+import {AdminUserResponseDto} from "../dto/user/admin-user-response.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -20,13 +21,13 @@ export class UserService {
 
   getAllUsers() {
     return this.http.get(this.baseUrl + '/users').pipe(
-      map((data: any) => data.map((item: any) => this.mapProfile(item))),
+      map((data: any) => data.map((item: any) => this.mapToAdminResp(item))),
     );
   }
 
   getUserById(id: string) {
     return this.http.get(this.baseUrl + '/users/' + id).pipe(
-      map((data: any) => this.mapProfile(data))
+      map((data: any) => this.mapToAdminResp(data))
     );
   }
 
@@ -45,6 +46,17 @@ export class UserService {
       item.name,
       item.accountType,
       item.role,
+    );
+  }
+
+  private mapToAdminResp(item: any) {
+    return new AdminUserResponseDto(
+      item.id,
+      item.email,
+      item.name,
+      item.accountType,
+      item.role,
+      item.numberOfProjects
     );
   }
 }
