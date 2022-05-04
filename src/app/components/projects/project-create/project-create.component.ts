@@ -21,6 +21,7 @@ export class ProjectCreateComponent implements OnInit {
     team: [],
     taskBoardLinks: [],
     documentLinks: [],
+    customFields: [],
   }
 
   id = null;
@@ -52,6 +53,7 @@ export class ProjectCreateComponent implements OnInit {
       this.form.team,
       this.form.taskBoardLinks,
       this.form.documentLinks,
+      this.form.customFields,
     );
     if (this.id) {
       this.projectService.updateProject(this.id, dto).subscribe(data => {
@@ -90,6 +92,7 @@ export class ProjectCreateComponent implements OnInit {
       this.form.team = data.team;
       this.form.taskBoardLinks = data.taskBoardLinks;
       this.form.documentLinks = data.documentLinks;
+      this.form.customFields = data.customFields;
     });
   }
 
@@ -142,5 +145,13 @@ export class ProjectCreateComponent implements OnInit {
   }
   removeDocumentFields(i: number) {
     this.form.documentLinks.splice(i, 1);
+  }
+
+  // Custom fields
+  addCustomField() {
+    this.form.customFields.push({url: null});
+  }
+  removeCustomFields(i: number) {
+    this.form.customFields.splice(i, 1);
   }
 }

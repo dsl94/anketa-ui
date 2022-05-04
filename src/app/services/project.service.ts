@@ -49,6 +49,7 @@ export class ProjectService {
       item.team,
       item.taskBoardLinks,
       item.documentLinks,
+      item.customFields,
     );
   }
 }

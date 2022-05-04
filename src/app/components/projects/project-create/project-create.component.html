@@ -182,7 +182,7 @@
             <div class="row" *ngFor="let dlf of form.documentLinks let i = index">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Repository name</label>
+                  <label>Document name</label>
                   <input type="text" class="form-control" id="dlfname{{i}}"
                          name="dlfname{{i}}" aria-describedby="documentLinkNameHelp" placeholder="Enter document name"
                          [(ngModel)]="form.documentLinks[i].name">
@@ -262,6 +262,55 @@
               <div class="col-md-3 float-right offset-9">
                 <div class="float-right">
                   <button type="button" (click)="addTeamField()" class="btn btn-info btn-sm">
+                    <span class="fa fa-plus"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--  CUSTOM FIELDS -->
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Collapsable Card Example -->
+      <div class="card shadow mb-4">
+        <!-- Card Header - Accordion -->
+        <a href="#customColapse" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="trues" aria-controls="collapseCardExample">
+          <h6 class="m-0 font-weight-bold text-primary">Other project information - Custom fields</h6>
+        </a>
+        <!-- Card Content - Collapse -->
+        <div class="collapse show" id="customColapse" style="">
+          <div class="card-body">
+            <div class="row" *ngFor="let cf of form.customFields let i = index">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Field name</label>
+                  <input type="text" class="form-control" id="cfname{{i}}"
+                         name="cfname{{i}}" aria-describedby="customFieldNameHelp" placeholder="Enter field name"
+                         [(ngModel)]="form.customFields[i].name">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Field value</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="cfvalue{{i}}"
+                           name="cfvalue{{i}}" aria-describedby="customFieldValueeHelp" placeholder="Enter field value"
+                           [(ngModel)]="form.customFields[i].value">
+                    <button (click)="removeCustomFields(i)" style="margin-left: 10px" type="button" class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3 float-right offset-9">
+                <div class="float-right">
+                  <button type="button" (click)="addCustomField()" class="btn btn-info btn-sm">
                     <span class="fa fa-plus"></span>
                   </button>
                 </div>
