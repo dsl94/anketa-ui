@@ -19,7 +19,8 @@ export class ProjectCreateComponent implements OnInit {
     endDate: null,
     repositoryFields: [],
     team: [],
-    taskBoardLinks: []
+    taskBoardLinks: [],
+    documentLinks: [],
   }
 
   id = null;
@@ -49,7 +50,8 @@ export class ProjectCreateComponent implements OnInit {
       this.form.inProgress ? null : this.form.endDate,
       this.form.repositoryFields,
       this.form.team,
-      this.form.taskBoardLinks
+      this.form.taskBoardLinks,
+      this.form.documentLinks,
     );
     if (this.id) {
       this.projectService.updateProject(this.id, dto).subscribe(data => {
@@ -87,6 +89,7 @@ export class ProjectCreateComponent implements OnInit {
       this.form.repositoryFields = data.repositoryFields;
       this.form.team = data.team;
       this.form.taskBoardLinks = data.taskBoardLinks;
+      this.form.documentLinks = data.documentLinks;
     });
   }
 
@@ -131,5 +134,13 @@ export class ProjectCreateComponent implements OnInit {
   }
   removeTaskBoardFields(i: number) {
     this.form.taskBoardLinks.splice(i, 1);
+  }
+
+  // Document links
+  addDocumentLinkField() {
+    this.form.documentLinks.push({url: null});
+  }
+  removeDocumentFields(i: number) {
+    this.form.documentLinks.splice(i, 1);
   }
 }

@@ -1,6 +1,7 @@
 import {RepositoryFieldEntity} from "./repository-field.entity";
 import {ProjectMemberEntity} from "./project-member.entity";
 import {ProjectTboardEntity} from "./project-tboard.entity";
+import {DocumentLinkFieldEntity} from "./document-link-field.entity";
 
 export class ProjectResponseDto {
   id: string;
@@ -13,8 +14,9 @@ export class ProjectResponseDto {
   repositoryFields: RepositoryFieldEntity[];
   team: ProjectMemberEntity[];
   taskBoardLinks: ProjectTboardEntity[];
+  documentLinks: DocumentLinkFieldEntity[];
 
-  constructor(id: string, name: string, description: string, inProgress: boolean, startDate: Date, endDate: Date, createdAt: Date, repositoryFields: RepositoryFieldEntity[], team: ProjectMemberEntity[], taskBoardLinks: ProjectTboardEntity[]) {
+  constructor(id: string, name: string, description: string, inProgress: boolean, startDate: Date, endDate: Date, createdAt: Date, repositoryFields: RepositoryFieldEntity[], team: ProjectMemberEntity[], taskBoardLinks: ProjectTboardEntity[], documentLinks: DocumentLinkFieldEntity[]) {
     this.id = id;
     this.name = name;
     this.description = description;
@@ -25,5 +27,6 @@ export class ProjectResponseDto {
     this.repositoryFields = repositoryFields == null ? [] : repositoryFields;
     this.team = team == null ? [] : team;
     this.taskBoardLinks = taskBoardLinks == null ? [] : taskBoardLinks;
+    this.documentLinks = documentLinks == null ? [] : documentLinks;
   }
 }
