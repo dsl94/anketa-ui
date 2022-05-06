@@ -44,7 +44,6 @@ export class UserService {
       item.id,
       item.email,
       item.name,
-      item.accountType,
       item.role,
     );
   }
@@ -54,7 +53,6 @@ export class UserService {
       item.id,
       item.email,
       item.name,
-      item.accountType,
       item.role,
       item.numberOfProjects
     );

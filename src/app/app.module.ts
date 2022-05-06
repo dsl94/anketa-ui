@@ -23,10 +23,6 @@ import {UserService} from "./services/user.service";
 import { UserListComponent } from './components/users/user-list/user-list.component';
 import {DataTablesModule} from "angular-datatables";
 import { UserInfoComponent } from './components/users/user-info/user-info.component';
-import { ProjectListComponent } from './components/projects/project-list/project-list.component';
-import {ProjectService} from "./services/project.service";
-import {ProjectFilter} from "./project-filter";
-import { ProjectCreateComponent } from './components/projects/project-create/project-create.component';
 import {ConfirmationPopoverModule} from "angular-confirmation-popover";
 
 const routes: Routes = [
@@ -43,9 +39,6 @@ const routes: Routes = [
     data: { roles: ['USER', 'ADMIN'] },
     children: [
       {path: 'profile', component: ProfileComponent},
-      {path: 'projects', component: ProjectListComponent},
-      {path: 'project-create', component: ProjectCreateComponent},
-      {path: 'project-info/:id', component: ProjectCreateComponent}
     ]
     },
   {
@@ -63,7 +56,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ProjectFilter,
     RegisterComponent,
     LoginComponent,
     MainComponent,
@@ -72,8 +64,6 @@ const routes: Routes = [
     ProfileComponent,
     UserListComponent,
     UserInfoComponent,
-    ProjectListComponent,
-    ProjectCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +84,6 @@ const routes: Routes = [
     AuthService,
     TokenService,
     UserService,
-    ProjectService
   ],
   bootstrap: [AppComponent]
 })

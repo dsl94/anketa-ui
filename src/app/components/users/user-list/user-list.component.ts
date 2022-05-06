@@ -37,31 +37,9 @@ export class UserListComponent implements OnInit {
       case 'ADMIN':
         return 'Administrator';
       case 'USER':
-        return 'User'
+        return 'Korisnik'
       default:
         return 'Unknown';
-    }
-  }
-
-  getAccountType(acc: string) {
-    switch (acc) {
-      case 'PERSONAL':
-        return 'Personal';
-      case 'ORGANIZATION':
-        return 'Organization'
-      default:
-        return 'Unknown';
-    }
-  }
-
-  getAccountColor(acc: string) {
-    switch (acc) {
-      case 'PERSONAL':
-        return 'primary';
-      case 'ORGANIZATION':
-        return 'info'
-      default:
-        return 'warning';
     }
   }
 }

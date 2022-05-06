@@ -14,7 +14,6 @@ export class RegisterComponent implements OnInit {
   form: any = {
     email: null,
     name: null,
-    accountType: 'PERSONAL',
     password: null,
   };
   registerFailed = false;
@@ -30,10 +29,9 @@ export class RegisterComponent implements OnInit {
       this.form.email,
       this.form.name,
       this.form.password,
-      this.form.accountType
     );
     this.authService.register(register).subscribe((data) => {
-      this.toastr.success('Registration successful')
+      this.toastr.success('Uspešna registracija')
       this.router.navigate(['/login']);
     },
       error => {

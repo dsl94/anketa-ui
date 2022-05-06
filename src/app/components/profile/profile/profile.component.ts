@@ -15,7 +15,6 @@ export class ProfileComponent implements OnInit {
   form: any = {
     email: null,
     name: null,
-    accountType: 'PERSONAL',
   }
   formPassword: any = {
     currentPassword: null,
@@ -40,12 +39,11 @@ export class ProfileComponent implements OnInit {
       this.profile = data;
       this.form.email = this.profile.email;
       this.form.name = this.profile.name;
-      this.form.accountType = this.profile.accountType;
     });
   }
 
   onSubmit() {
-    const dto = new UpdateProfileDto(this.form.email, this.form.name, this.form.accountType);
+    const dto = new UpdateProfileDto(this.form.email, this.form.name);
     this.userService.updateProfile(dto).subscribe(
       data => {
         this.toastr.success("Profile updated")

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="card shadow mb-4 col-lg-12">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">User profile</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Profil</h6>
     </div>
     <div class="card-body">
       <div class="row">
@@ -13,40 +13,23 @@
                 <div class="form-group">
                   <label>Email</label>
                   <input type="email" class="form-control" id="email"
-                         name="email" aria-describedby="emailHelp" placeholder="Enter email"
+                         name="email" aria-describedby="emailHelp" placeholder="Unesite email"
                          [(ngModel)]="form.email" required #email="ngModel">
                   <div class="alert alert-danger" role="alert"
                        *ngIf="email.errors && f.submitted">
-                    Email is required!
+                    Email je obavezan!
                   </div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>Name</label>
+                  <label>Ime i prezime</label>
                   <input type="text" class="form-control" id="name"
-                         name="name" aria-describedby="nameHelp" placeholder="Enter name"
+                         name="name" aria-describedby="nameHelp" placeholder="Unesite ime"
                          [(ngModel)]="form.name" required #name="ngModel">
                   <div class="alert alert-danger" role="alert"
                        *ngIf="name.errors && f.submitted">
-                    Name is required!
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label>Account type</label>
-                  <select name="accountType" class="form-control" [(ngModel)]="form.accountType" #accountType="ngModel" required>
-                    <option value="PERSONAL">
-                      Personal
-                    </option>
-                    <option value="ORGANIZATION">
-                      Organization
-                    </option>
-                  </select>
-                  <div class="alert alert-danger" role="alert"
-                       *ngIf="accountType.errors && f.submitted">
-                    Account type is required!
+                    Ime i prezime je obavezno!
                   </div>
                 </div>
               </div>
@@ -63,7 +46,7 @@
               </div>
             </div>
             <button class="btn btn-warning float-right">
-              Update profile
+              Izmeni profil
             </button>
           </form>
         </div>
@@ -75,7 +58,7 @@
 <div class="row">
   <div class="card shadow mb-4 col-lg-12">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Change password</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Promenite lozinku</h6>
     </div>
     <div class="card-body">
       <div class="row">
@@ -85,39 +68,39 @@
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>Current password</label>
+                  <label>Trenutna lozinka</label>
                   <input type="password" class="form-control" id="currentPassword"
-                         name="currentPassword" aria-describedby="currentPasswordHelp" placeholder="Enter current password"
+                         name="currentPassword" aria-describedby="currentPasswordHelp" placeholder="Unesite trenutnu lozinku"
                          [(ngModel)]="formPassword.currentPassword" required #currentPassword="ngModel">
                   <div class="alert alert-danger" role="alert"
                        *ngIf="currentPassword.errors && f.submitted">
-                    Current password is required!
+                    Trenutna lozinka je obavezna!
                   </div>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>New password</label>
+                  <label>Nova lozinka</label>
                   <input type="password" class="form-control" id="newPassword"
-                         name="currentPassword" aria-describedby="newPasswordHelp" placeholder="Enter new password"
+                         name="currentPassword" aria-describedby="newPasswordHelp" placeholder="Unesite novu lozinku"
                          [(ngModel)]="formPassword.newPassword" required #newPassword="ngModel">
                   <div class="alert alert-danger" role="alert"
                        *ngIf="newPassword.errors && f.submitted">
-                    New password is required!
+                    Nova lozinka je obavezna!
                   </div>
                 </div>
               </div>
 
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>Repeat password</label>
+                  <label>Ponovite novu lozinku</label>
                   <input type="password" class="form-control" id="repeatPassword"
-                         name="repeatPassword" aria-describedby="repeatPasswordHelp" placeholder="Repeat password"
+                         name="repeatPassword" aria-describedby="repeatPasswordHelp" placeholder="Ponovite novu lozinku"
                          [(ngModel)]="formPassword.repeatPassword" required #repeatPassword="ngModel">
                   <div class="alert alert-danger" role="alert"
                        *ngIf="repeatPassword.errors && f.submitted">
-                    Repeat password is required!
+                    Ponovljena lozinka je obavezna!
                   </div>
                 </div>
               </div>
@@ -134,7 +117,7 @@
               </div>
             </div>
             <button class="btn btn-warning float-right">
-              Change password
+              Promeni lozinku
             </button>
           </form>
         </div>

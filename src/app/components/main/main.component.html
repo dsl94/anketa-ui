@@ -6,9 +6,9 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laptop-code"></i>
+                <i class="fas fa-tasks"></i>
             </div>
-            <div class="sidebar-brand-text mx-3"><h6>Product Central</h6></div>
+            <div class="sidebar-brand-text mx-3"><h6>Ankete</h6></div>
         </a>
 
         <!-- Divider -->
@@ -17,57 +17,42 @@
         <div *ngIf="role=='ADMIN'">
           <hr class="sidebar-divider">
           <div class="sidebar-heading">
-            Product hub
+            Ankete
           </div>
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" [routerLink]="['/central/projects']">
-              <i class="fas fa-fw fa-laptop-house"></i>
-              <span>My projects</span></a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" [routerLink]="['/user/profile']">
-              <i class="fas fa-fw fa-laptop"></i>
-              <span>Guest projects</span></a>
+              <i class="fas fa-fw fa-tasks"></i>
+              <span>Sve ankete</span></a>
           </li>
           <hr class="sidebar-divider">
           <div class="sidebar-heading">
-            Administration
+            Administracija
           </div>
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" [routerLink]="['/admin/users']">
               <i class="fas fa-fw fa-users"></i>
-              <span>Users</span></a>
+              <span>Korisnici</span></a>
           </li>
         </div>
 
         <div *ngIf="role=='USER'">
           <hr class="sidebar-divider">
           <div class="sidebar-heading">
-            Product hub
+            Anekete
           </div>
           <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" [routerLink]="['/central/projects']">
-                    <i class="fas fa-fw fa-laptop-house"></i>
-                    <span>My projects</span></a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" [routerLink]="['/user/profile']">
-              <i class="fas fa-fw fa-laptop"></i>
-              <span>Guest projects</span></a>
+                    <i class="fas fa-fw fa-tasks"></i>
+                    <span>Sve ankete</span></a>
           </li>
           <hr class="sidebar-divider">
           <div class="sidebar-heading">
-            Administration
+            Administracija
           </div>
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" [routerLink]="['/central/profile']">
               <i class="fas fa-fw fa-user"></i>
-              <span>Profile</span></a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a class="nav-link" [routerLink]="['/user/profile']">
-              <i class="fas fa-fw fa-users"></i>
-              <span>Guests</span></a>
+              <span>Profil</span></a>
           </li>
         </div>
 
@@ -159,13 +144,13 @@
                             <!-- <div class="dropdown-divider"></div> -->
                           <a class="dropdown-item" [routerLink]="['/central/profile']">
                             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                            Profile
+                            Profil
                           </a>
                           <div class="dropdown-divider"></div>
                             <a (click)="logout()" class="dropdown-item" href="#" data-toggle="modal"
                                 data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Logout
+                                Odjava
                             </a>
                         </div>
                     </li>

@@ -24,7 +24,7 @@ export class ForgotPasswordComponent implements OnInit {
   onSubmit() {
     this.authService.forgotPassword(this.form.email).subscribe(
       data => {
-        this.toastr.success("Password reset requested, check your email")
+        this.toastr.success("Reset lozinke zatražen, proverite svoj email")
         this.router.navigate(['/login']);
       },
       error => {

@@ -41,11 +41,11 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenService.getUser().roles;
-        this.toastr.success("Welcome back");
+        this.toastr.success("Dobrodošli");
         if(this.roles.includes('USER')) {
           this.router.navigate(['/central/projects']);
         } else if (this.roles.includes('ADMIN')) {
-          this.router.navigate(['/central/projects']);
+          this.router.navigate(['/admin/users']);
         }
       },
       err => {
