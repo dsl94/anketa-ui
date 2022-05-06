@@ -20,8 +20,8 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 25,
-      lengthMenu: [5, 10, 25],
+      pageLength: 10,
+      lengthMenu: [10, 20, 30, 50],
       processing: true,
       order: []
     };
