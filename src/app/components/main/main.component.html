@@ -33,6 +33,11 @@
               <i class="fas fa-fw fa-users"></i>
               <span>Korisnici</span></a>
           </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/admin/groups']">
+              <i class="fas fa-fw fa-layer-group"></i>
+              <span>Grupe</span></a>
+          </li>
         </div>
 
         <div *ngIf="role=='USER'">

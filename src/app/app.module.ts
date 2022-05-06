@@ -24,6 +24,8 @@ import { UserListComponent } from './components/users/user-list/user-list.compon
 import {DataTablesModule} from "angular-datatables";
 import { UserInfoComponent } from './components/users/user-info/user-info.component';
 import {ConfirmationPopoverModule} from "angular-confirmation-popover";
+import { GroupListComponent } from './components/groups/group-list/group-list.component';
+import {GroupService} from "./services/group.service";
 
 const routes: Routes = [
   // osnovne rute
@@ -49,6 +51,7 @@ const routes: Routes = [
     children: [
       { path: 'users', component: UserListComponent },
       { path: 'users/:id', component: UserInfoComponent },
+      { path: 'groups', component: GroupListComponent },
     ]
   },
 ];
@@ -64,6 +67,7 @@ const routes: Routes = [
     ProfileComponent,
     UserListComponent,
     UserInfoComponent,
+    GroupListComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,6 +88,7 @@ const routes: Routes = [
     AuthService,
     TokenService,
     UserService,
+    GroupService
   ],
   bootstrap: [AppComponent]
 })
