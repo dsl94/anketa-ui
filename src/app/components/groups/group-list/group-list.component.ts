@@ -62,6 +62,16 @@ export class GroupListComponent implements OnInit {
     });
   }
 
+  delete(id: string) {
+    this.groupService.removeGroup(id).subscribe(data => {
+        this.toastr.info("Grupa izbrisana");
+        this.load();
+      },
+      error => {
+        this.toastr.error(error);
+      });
+  }
+
   addUser() {
     this.form.users.push({name: null});
   }

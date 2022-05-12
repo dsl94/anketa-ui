@@ -19,8 +19,15 @@
           <td>{{group.name}}</td>
           <td>{{group.numberOfUsers}}</td>
           <td>
-            <a [routerLink]="['/admin/users', group.id]" class="btn btn-info btn-circle btn-sm"><i
+            <a [routerLink]="['/admin/groups', group.id]" class="btn btn-info btn-circle btn-sm"><i
               class="fas fa-info-circle"></i></a> &nbsp;
+            <span style="cursor: pointer; margin-left: 5px"
+                  mwlConfirmationPopover
+                  popoverTitle="Da li ste sigurni?"
+                  popoverMessage="Da li ste sigurni da želite da izbrišete grupu?"
+                  placement="left"
+                  (confirm)="delete(group.id)"
+            ><span class="fa fa-trash-alt text-danger"></span></span>
             <!--            <button type="button" (click)="deleteUser(user.userName)" class="btn btn-danger btn-circle btn-sm"><i-->
             <!--              class="fas fa-trash"></i></button>&nbsp;-->
             <!--            <button *ngIf="!pilots" (click)="resetPassword(user.userName)" type="button" class="btn btn-warning btn-circle btn-sm"><i-->

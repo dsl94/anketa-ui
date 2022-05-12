@@ -7,6 +7,7 @@ import {ProfileDto} from "../dto/user/profile.dto";
 import {AdminUserResponseDto} from "../dto/user/admin-user-response.dto";
 import {GroupTableDto} from "../dto/group/group-table.dto";
 import {CreateGroupDto} from "../dto/group/create-group.dto";
+import {GroupDetailsDto} from "../dto/group/group-details.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -20,14 +21,27 @@ export class GroupService {
     );
   }
 
-  // getUserById(id: string) {
-  //   return this.http.get(this.baseUrl + '/users/' + id).pipe(
-  //     map((data: any) => this.mapToAdminResp(data))
-  //   );
-  // }
+  getGroupById(id: string) {
+    return this.http.get(this.baseUrl + '/group/' + id).pipe(
+      map((data: any) => this.mapDetails(data))
+    );
+  }
 
   createGroup(dto: CreateGroupDto) {
     return this.http.post(this.baseUrl + '/group', dto);
+  }
+
+  removeGroup(id: string) {
+    return this.http.delete(this.baseUrl + '/group/' + id);
+  }
+
+  removeUserFromGroup(id: string, userId: string) {
+    return this.http.delete(this.baseUrl + '/group/' + id + '/users/' + userId);
+  }
+
+
+  addUsers(users: string[], id: string) {
+    return this.http.put(this.baseUrl + '/group/users/' + id, {users});
   }
 
   private mapToGroupTable(item: any) {
@@ -35,6 +49,15 @@ export class GroupService {
       item.id,
       item.name,
      item.numberOfUsers
+    );
+  }
+
+  private mapDetails(item: any) {
+    return new GroupDetailsDto(
+      item.id,
+      item.name,
+      item.numberOfUsers,
+      item.users
     );
   }
 }

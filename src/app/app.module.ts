@@ -26,6 +26,7 @@ import { UserInfoComponent } from './components/users/user-info/user-info.compon
 import {ConfirmationPopoverModule} from "angular-confirmation-popover";
 import { GroupListComponent } from './components/groups/group-list/group-list.component';
 import {GroupService} from "./services/group.service";
+import { GroupDetailsComponent } from './components/groups/group-details/group-details.component';
 
 const routes: Routes = [
   // osnovne rute
@@ -52,6 +53,7 @@ const routes: Routes = [
       { path: 'users', component: UserListComponent },
       { path: 'users/:id', component: UserInfoComponent },
       { path: 'groups', component: GroupListComponent },
+      { path: 'groups/:id', component: GroupDetailsComponent },
     ]
   },
 ];
@@ -68,6 +70,7 @@ const routes: Routes = [
     UserListComponent,
     UserInfoComponent,
     GroupListComponent,
+    GroupDetailsComponent,
   ],
   imports: [
     BrowserModule,
