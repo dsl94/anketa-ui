@@ -27,6 +27,9 @@ import {ConfirmationPopoverModule} from "angular-confirmation-popover";
 import { GroupListComponent } from './components/groups/group-list/group-list.component';
 import {GroupService} from "./services/group.service";
 import { GroupDetailsComponent } from './components/groups/group-details/group-details.component';
+import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
+import { SurveyListComponent } from './components/survey/survey-list/survey-list.component';
+import { SurveyDetailsComponent } from './components/survey/survey-details/survey-details.component';
 
 const routes: Routes = [
   // osnovne rute
@@ -54,6 +57,9 @@ const routes: Routes = [
       { path: 'users/:id', component: UserInfoComponent },
       { path: 'groups', component: GroupListComponent },
       { path: 'groups/:id', component: GroupDetailsComponent },
+      { path: 'surveys', component: SurveyListComponent },
+      { path: 'survey-details/:id', component: SurveyDetailsComponent },
+      { path: 'survey-details', component: SurveyDetailsComponent },
     ]
   },
 ];
@@ -71,6 +77,8 @@ const routes: Routes = [
     UserInfoComponent,
     GroupListComponent,
     GroupDetailsComponent,
+    SurveyListComponent,
+    SurveyDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +87,7 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NgMultiSelectDropDownModule.forRoot(),
     ToastrModule.forRoot(),
     RouterModule.forRoot(routes),
     ConfirmationPopoverModule.forRoot({

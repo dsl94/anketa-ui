@@ -8,6 +8,7 @@ import {AdminUserResponseDto} from "../dto/user/admin-user-response.dto";
 import {GroupTableDto} from "../dto/group/group-table.dto";
 import {CreateGroupDto} from "../dto/group/create-group.dto";
 import {GroupDetailsDto} from "../dto/group/group-details.dto";
+import {SimpleGroupDto} from "../dto/group/simple-group.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,12 @@ export class GroupService {
   getGroups() {
     return this.http.get(this.baseUrl + '/group').pipe(
       map((data: any) => data.map((item: any) => this.mapToGroupTable(item))),
+    );
+  }
+
+  getSimpleGroups() {
+    return this.http.get(this.baseUrl + '/group/simple/all').pipe(
+      map((data: any) => data.map((item: any) => this.mapSimple(item))),
     );
   }
 
@@ -58,6 +65,13 @@ export class GroupService {
       item.name,
       item.numberOfUsers,
       item.users
+    );
+  }
+
+  private mapSimple(item: any) {
+    return new SimpleGroupDto(
+      item.id,
+      item.name
     );
   }
 }

@@ -27,6 +27,7 @@
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "leaflet": "^1.7.1",
+    "ng-multiselect-dropdown": "^0.3.8",
     "ngx-toastr": "^14.3.0",
     "postcss-loader": "^6.1.1",
     "rxjs": "~6.6.0",
