@@ -16,7 +16,7 @@ export class MainComponent implements OnInit {
   form: any = {
     icao: null
   };
-  version: string = '0.1.3'
+  version: string = '0.1.0'
 
   constructor(private tokenService: TokenService, private router: Router) { }
 
