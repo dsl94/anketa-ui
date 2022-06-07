@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenService.getUser().roles;
         this.toastr.success("Dobrodošli");
         if(this.roles.includes('USER')) {
-          this.router.navigate(['/central/projects']);
+          this.router.navigate(['/central/surveys']);
         } else if (this.roles.includes('ADMIN')) {
           this.router.navigate(['/admin/surveys']);
         }

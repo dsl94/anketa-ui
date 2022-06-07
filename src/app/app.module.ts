@@ -30,6 +30,9 @@ import { GroupDetailsComponent } from './components/groups/group-details/group-d
 import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
 import { SurveyListComponent } from './components/survey/survey-list/survey-list.component';
 import { SurveyDetailsComponent } from './components/survey/survey-details/survey-details.component';
+import { UserDashboardComponent } from './components/dashboard/user-dashboard/user-dashboard.component';
+import { UsersSurveyComponent } from './components/users-survey/users-survey.component';
+import { SurveysResultComponent } from './components/survey/surveys-result/surveys-result.component';
 
 const routes: Routes = [
   // osnovne rute
@@ -45,6 +48,8 @@ const routes: Routes = [
     data: { roles: ['USER', 'ADMIN'] },
     children: [
       {path: 'profile', component: ProfileComponent},
+      {path: 'surveys', component: UserDashboardComponent},
+      { path: 'users-survey/:id', component: UsersSurveyComponent },
     ]
     },
   {
@@ -58,7 +63,7 @@ const routes: Routes = [
       { path: 'groups', component: GroupListComponent },
       { path: 'groups/:id', component: GroupDetailsComponent },
       { path: 'surveys', component: SurveyListComponent },
-      { path: 'survey-details/:id', component: SurveyDetailsComponent },
+      { path: 'survey-details/:id', component: SurveysResultComponent },
       { path: 'survey-details', component: SurveyDetailsComponent },
     ]
   },
@@ -79,6 +84,9 @@ const routes: Routes = [
     GroupDetailsComponent,
     SurveyListComponent,
     SurveyDetailsComponent,
+    UserDashboardComponent,
+    UsersSurveyComponent,
+    SurveysResultComponent,
   ],
   imports: [
     BrowserModule,

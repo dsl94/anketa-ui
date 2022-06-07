@@ -6,6 +6,7 @@ import {GroupDetailsDto} from "../dto/group/group-details.dto";
 import {SurveyTableDto} from "../dto/survey/survey-table.dto";
 import {CreateGroupDto} from "../dto/group/create-group.dto";
 import {CreateSurveyDto} from "../dto/survey/create-survey.dto";
+import {SurveyListForUserDto} from "../dto/survey/survey-list-for-user.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,26 @@ export class SurveyService {
     );
   }
 
+  getSurveysForUser() {
+    return this.http.get(this.baseUrl + '/survey/for-user/all').pipe(
+      map((data: any) => data.map((item: any) => this.mapToUserSurveyForList(item))),
+    );
+  }
+
+  getSurveyForUser(surveyId: string) {
+    return this.http.get(this.baseUrl + '/survey/for-user/one/' + surveyId);
+  }
+
+  getResults(surveyId: string) {
+    return this.http.get(this.baseUrl + '/survey/result/one/' + surveyId);
+  }
+
   createSurvey(dto: CreateSurveyDto) {
     return this.http.post(this.baseUrl + '/survey', dto);
+  }
+
+  postAnswers(id: string, dto: any) {
+    return this.http.post(this.baseUrl + '/survey/for-user/one/' + id, dto);
   }
 
   removeSurvey(id: string) {
@@ -33,6 +52,14 @@ export class SurveyService {
       item.id,
       item.name,
       item.numberOfGroups
+    );
+  }
+
+  private mapToUserSurveyForList(item: any) {
+    return new SurveyListForUserDto(
+      item.id,
+      item.name,
+      item.canDo
     );
   }
 
