@@ -6,8 +6,15 @@
     <div class="card-body">
       <div class="row" *ngFor="let answer of question.answers">
         <div class="col-md-12">
+          <div class="row">
+           <div class="col-md-6">
+             <h5><span class="text-primary">Od</span>: {{answer.from.name}}</h5>
+           </div>
+            <div class="col-md-6">
+              <h5 class="float-right"><span class="text-success">Za</span>: {{answer.to.name}}</h5>
+            </div>
+          </div>
           <div class="form-group">
-            <label>Odgovor od: {{answer.from.name}} <br> Odgovor za: {{answer.to.name}}</label>
             <textarea disabled [(ngModel)]="answer.answer" class="form-control"></textarea>
           </div>
         </div>
