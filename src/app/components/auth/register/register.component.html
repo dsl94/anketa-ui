@@ -28,15 +28,6 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control" id="name"
-                           name="name" aria-describedby="nameHelp" placeholder="Unesite ime i prezime"
-                           [(ngModel)]="form.name" required #name="ngModel">
-                    <div class="alert alert-danger" role="alert"
-                         *ngIf="name.errors && f.submitted">
-                       Ime i prezime su obavezni!
-                    </div>
-                  </div>
-                  <div class="form-group">
                     <input type="password" class="form-control" id="password"
                            name="password" aria-describedby="passwordHelp" placeholder="Unesite lozinku"
                            [(ngModel)]="form.password" required #password="ngModel">

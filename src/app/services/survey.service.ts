@@ -36,6 +36,10 @@ export class SurveyService {
     return this.http.get(this.baseUrl + '/survey/result/one/' + surveyId);
   }
 
+  getResultsUser(surveyId: string) {
+    return this.http.get(this.baseUrl + '/survey/result-user/one/' + surveyId);
+  }
+
   createSurvey(dto: CreateSurveyDto) {
     return this.http.post(this.baseUrl + '/survey', dto);
   }

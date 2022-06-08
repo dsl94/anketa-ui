@@ -10,6 +10,9 @@
           <div class="col-auto" *ngIf="survey.canDo">
             <a [routerLink]="['/central/users-survey', survey.id]"  style="cursor: pointer;"><span class="fas fa-arrow-right fa-2x text-gray-300"></span></a>
           </div>
+            <div class="col-auto" *ngIf="!survey.canDo">
+              <a [routerLink]="['/central/users-survey-result', survey.id]"  style="cursor: pointer;"><span class="fas fa-info fa-2x text-gray-300"></span></a>
+            </div>
         </div>
       </div>
     </div>

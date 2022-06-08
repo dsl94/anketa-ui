@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SurveyService} from "../../../services/survey.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
+import {TokenService} from "../../../services/token.service";
 
 @Component({
   selector: 'app-surveys-result',
@@ -11,14 +12,26 @@ import {ToastrService} from "ngx-toastr";
 export class SurveysResultComponent implements OnInit {
   id = '';
   survey: any = {}
+  isAdmin = false;
+  name = null;
 
-  constructor(private surveyService: SurveyService, private activatedRoute: ActivatedRoute, private toastr: ToastrService, private router: Router) { }
+  constructor(private tokenService: TokenService, private surveyService: SurveyService, private activatedRoute: ActivatedRoute, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.params['id'];
-    this.surveyService.getResults(this.id).subscribe(data => {
-      this.survey = data;
-    })
+    this.name = this.tokenService.getUser().name;
+    if (this.tokenService.getUser().roles.includes('ADMIN')) {
+      this.isAdmin = true;
+    }
+    if (this.isAdmin) {
+      this.surveyService.getResults(this.id).subscribe(data => {
+        this.survey = data;
+      });
+    } else {
+      this.surveyService.getResultsUser(this.id).subscribe(data => {
+        this.survey = data;
+      });
+    }
   }
 
 }

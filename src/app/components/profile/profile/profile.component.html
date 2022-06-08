@@ -12,7 +12,7 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Email</label>
-                  <input type="email" class="form-control" id="email"
+                  <input disabled type="email" class="form-control" id="email"
                          name="email" aria-describedby="emailHelp" placeholder="Unesite email"
                          [(ngModel)]="form.email" required #email="ngModel">
                   <div class="alert alert-danger" role="alert"
@@ -21,18 +21,18 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label>Ime i prezime</label>
-                  <input type="text" class="form-control" id="name"
-                         name="name" aria-describedby="nameHelp" placeholder="Unesite ime"
-                         [(ngModel)]="form.name" required #name="ngModel">
-                  <div class="alert alert-danger" role="alert"
-                       *ngIf="name.errors && f.submitted">
-                    Ime i prezime je obavezno!
-                  </div>
-                </div>
-              </div>
+<!--              <div class="col-md-4">-->
+<!--                <div class="form-group">-->
+<!--                  <label>Ime i prezime</label>-->
+<!--                  <input disabled type="text" class="form-control" id="name"-->
+<!--                         name="name" aria-describedby="nameHelp" placeholder="Unesite ime"-->
+<!--                         [(ngModel)]="form.name" required #name="ngModel">-->
+<!--                  <div class="alert alert-danger" role="alert"-->
+<!--                       *ngIf="name.errors && f.submitted">-->
+<!--                    Ime i prezime je obavezno!-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
             </div>
 
             <div class="row">
@@ -45,7 +45,7 @@
                 </div>
               </div>
             </div>
-            <button class="btn btn-warning float-right">
+            <button disabled class="btn btn-warning float-right">
               Izmeni profil
             </button>
           </form>
