@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://http://evaluacija.xyz:3001'
+  apiUrl: 'http://evaluacija.xyz:3001'
 };
 
 /*
