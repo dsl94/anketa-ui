@@ -7,6 +7,8 @@ import {SurveyTableDto} from "../../../dto/survey/survey-table.dto";
 import {SurveyService} from "../../../services/survey.service";
 import {SimpleGroupDto} from "../../../dto/group/simple-group.dto";
 import {IDropdownSettings} from "ng-multiselect-dropdown";
+import {CreateSurveyDto} from "../../../dto/survey/create-survey.dto";
+import {AddGroupsDto} from "../../../dto/survey/add-groups.dto";
 
 @Component({
   selector: 'app-survey-list',
@@ -17,6 +19,12 @@ export class SurveyListComponent implements OnInit {
   surveys: SurveyTableDto[] = [];
   dtOptions: DataTables.Settings = {};
   fetched: boolean = false;
+  form: any = {
+    groups: []
+  }
+  dropdownSettings: IDropdownSettings = {};
+  groups: SimpleGroupDto[] = [];
+  selectedId: any = null;
 
   constructor(private groupService: GroupService, private surveyService: SurveyService, private toastr: ToastrService) { }
 
@@ -28,6 +36,20 @@ export class SurveyListComponent implements OnInit {
       processing: true,
       order: []
     };
+
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'name',
+      selectAllText: 'Izaberi sve',
+      unSelectAllText: 'Poništi izbor',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
+
+    this.groupService.getSimpleGroups().subscribe((data) => {
+      this.groups = data;
+    });
 
     this.load();
   }
@@ -47,6 +69,26 @@ export class SurveyListComponent implements OnInit {
       error => {
         this.toastr.error(error);
       });
+  }
+
+  onSubmit() {
+    const dto = new AddGroupsDto(
+      this.form.groups,
+    );
+    this.surveyService.addGroups(this.selectedId, dto).subscribe(data => {
+        this.toastr.success("Grupa dodata");
+        // @ts-ignore
+        document.getElementById('closeModalButton').click();
+       this.load();
+      },
+      error => {
+        const errm = error.error.message;
+        this.toastr.error(Array.isArray(errm) ? errm[0] : errm);
+      });
+  }
+
+  selectSurvey(id: any) {
+    this.selectedId = id;
   }
 
 }

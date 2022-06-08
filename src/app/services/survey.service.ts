@@ -7,6 +7,7 @@ import {SurveyTableDto} from "../dto/survey/survey-table.dto";
 import {CreateGroupDto} from "../dto/group/create-group.dto";
 import {CreateSurveyDto} from "../dto/survey/create-survey.dto";
 import {SurveyListForUserDto} from "../dto/survey/survey-list-for-user.dto";
+import {AddGroupsDto} from "../dto/survey/add-groups.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,10 @@ export class SurveyService {
 
   createSurvey(dto: CreateSurveyDto) {
     return this.http.post(this.baseUrl + '/survey', dto);
+  }
+
+  addGroups(id: any, dto: AddGroupsDto) {
+    return this.http.post(this.baseUrl + '/survey/groups/add/' + id, dto);
   }
 
   postAnswers(id: string, dto: any) {

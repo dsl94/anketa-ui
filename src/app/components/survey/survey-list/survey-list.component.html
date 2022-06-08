@@ -21,6 +21,9 @@
           <td>
             <a [routerLink]="['/admin/survey-details', survey.id]" class="btn btn-info btn-circle btn-sm"><i
               class="fas fa-info-circle"></i></a> &nbsp;
+            <span style="margin-right: 5px">
+              <i (click)="selectSurvey(survey.id)" data-toggle="modal" data-target="#groupModal" class="fas fa-plus text-warning" style="cursor: pointer;"></i>
+            </span>
             <span style="cursor: pointer; margin-left: 5px"
                   mwlConfirmationPopover
                   popoverTitle="Da li ste sigurni?"
@@ -28,10 +31,38 @@
                   placement="left"
                   (confirm)="delete(survey.id)"
             ><span class="fa fa-trash-alt text-danger"></span></span>
-          </td>
+            </td>
         </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="groupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="text-primary" for="groups">Grupe</label>
+            <ng-multiselect-dropdown
+              name="groups"
+              id="groups"
+              [placeholder]="'Izaberite grupe'"
+              [settings]="dropdownSettings"
+              [data]="groups"
+              [(ngModel)]="form.groups">
+            </ng-multiselect-dropdown>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="closeModalButton" type="button" class="btn btn-secondary"
+                  data-dismiss="modal">Zatvori</button>
+          <button type="submit" class="btn btn-primary">Dodaj</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
