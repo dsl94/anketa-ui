@@ -5,11 +5,14 @@ export class GroupDetailsDto {
   name: string;
   numberOfUsers: number;
   users: SimpleUserDto[];
+  toAdd: any;
 
-  constructor(id: string, name: string, numberOfUsers: number, users: SimpleUserDto[]) {
+
+  constructor(id: string, name: string, numberOfUsers: number, users: SimpleUserDto[], toAdd: any) {
     this.id = id;
     this.name = name;
     this.numberOfUsers = numberOfUsers;
     this.users = users;
+    this.toAdd = toAdd;
   }
 }

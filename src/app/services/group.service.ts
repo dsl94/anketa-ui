@@ -64,7 +64,8 @@ export class GroupService {
       item.id,
       item.name,
       item.numberOfUsers,
-      item.users
+      item.users,
+      item.toAdd
     );
   }
 
