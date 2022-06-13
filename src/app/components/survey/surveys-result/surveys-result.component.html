@@ -15,7 +15,28 @@
               </div>
             </div>
             <div class="form-group">
+              <label>Odgovor:</label>
               <textarea disabled [(ngModel)]="answer.answer" class="form-control"></textarea>
+            </div>
+            <div class="row" *ngIf="!isAdmin">
+              <div class="col-md-10">
+                <div class="form-group">
+                  <label>Povratni odgovor:</label>
+                  <textarea [disabled]="answer.responded === true" [(ngModel)]="answer.response" class="form-control"></textarea>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <button (click)="postResponse(question.question, answer.response, answer.from.email)" [disabled]="answer.responded === true" style="margin-top: 15px;" type="button" class="btn btn-success btn-sm btn-block">Pošalji odgovor</button>
+              </div>
+            </div>
+
+            <div class="row" *ngIf="isAdmin">
+              <div class="col-md-12">
+                <label>Povratni odgovor:</label>
+                <div class="form-group">
+                  <textarea disabled [(ngModel)]="answer.response" class="form-control"></textarea>
+                </div>
+              </div>
             </div>
           </div>
       </div>

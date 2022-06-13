@@ -23,6 +23,10 @@ export class SurveysResultComponent implements OnInit {
     if (this.tokenService.getUser().roles.includes('ADMIN')) {
       this.isAdmin = true;
     }
+    this.load();
+  }
+
+  load() {
     if (this.isAdmin) {
       this.surveyService.getResults(this.id).subscribe(data => {
         this.survey = data;
@@ -34,4 +38,10 @@ export class SurveysResultComponent implements OnInit {
     }
   }
 
+  postResponse(question: string, response: string, from: string) {
+    this.surveyService.postResponse(this.id, {question, response, from}).subscribe(data => {
+      this.toastr.success("Uspešno ste poslali odgovor na sugestiju");
+      this.load();
+    });
+  }
 }

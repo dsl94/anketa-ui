@@ -52,6 +52,10 @@ export class SurveyService {
     return this.http.post(this.baseUrl + '/survey/for-user/one/' + id, dto);
   }
 
+  postResponse(id: string, dto: any) {
+    return this.http.post(this.baseUrl + '/survey/for-user/response/' + id, dto);
+  }
+
   removeSurvey(id: string) {
     return this.http.delete(this.baseUrl + '/survey/' + id);
   }
