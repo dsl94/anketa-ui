@@ -3,7 +3,7 @@
 FROM node:16-alpine AS my-app-build
 WORKDIR /app
 COPY . .
-RUN npm install && npm run build
+RUN yarn install && npm run build
 
 # stage 2
 

@@ -33,6 +33,7 @@ import { SurveyDetailsComponent } from './components/survey/survey-details/surve
 import { UserDashboardComponent } from './components/dashboard/user-dashboard/user-dashboard.component';
 import { UsersSurveyComponent } from './components/users-survey/users-survey.component';
 import { SurveysResultComponent } from './components/survey/surveys-result/surveys-result.component';
+import { SurveyTableComponent } from './components/survey/survey-table/survey-table.component';
 
 const routes: Routes = [
   // osnovne rute
@@ -65,6 +66,7 @@ const routes: Routes = [
       { path: 'groups/:id', component: GroupDetailsComponent },
       { path: 'surveys', component: SurveyListComponent },
       { path: 'survey-details/:id', component: SurveysResultComponent },
+      { path: 'survey-table/:id', component: SurveyTableComponent },
       { path: 'survey-details', component: SurveyDetailsComponent },
     ]
   },
@@ -88,6 +90,7 @@ const routes: Routes = [
     UserDashboardComponent,
     UsersSurveyComponent,
     SurveysResultComponent,
+    SurveyTableComponent,
   ],
   imports: [
     BrowserModule,
